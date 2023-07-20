@@ -4,8 +4,8 @@ pipeline{
       stage('stage-1'){
         steps{
           //sh "docker pull httpd"
-         // sh "docker stop 23Q1-v"
-        // sh "docker rm 23Q1-v"
+          sh "docker stop 23Q1-v"
+         sh "docker rm 23Q1-v"
           sh "docker system prune -a -f"
           sh "docker run -itdv /mnt:/usr/local/apache2/htdocs/ httpd"
           sh "docker run -itdp 8002:80 --name 23Q1-v httpd"
